@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let timeout;
+        function debouncing(){
+            clearTimeout(timeout);     //previous function called was cleared   
+           timeout=setTimeout(()=>{     //new timeout is called
+                console.log("first");
+                additon();
+            },3000);
+        }
+        function additon(){
+        const a=document.getElementById("harsh1").value;
+        const b=document.getElementById("harsh2").value;
+        const c=document.getElementById("final");
+        c.innerHTML=parseInt(a)+parseInt(b);
+        console.log(c);
+
+        }
+    </script>
+</head>
+<style>
+    .container{
+        margin:20px;
+        font-size: large;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight:bold;
+        color: blue;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: red;
+        padding: 20px;
+
+    }
+</style>
+<body>
+    <div class="container">heelo</div>
+    <div class="container">heelo1</div>
+    <div class="container">heelo2</div>
+
+    <input id="harsh1" type="text" placeholder="enter no 1"/>
+    <input id="harsh2" oninput="debouncing()" type="text" placeholder="enter no 2"/>
+    <!-- <button onclick="additon()" oninput="debouncing()">add</button> -->
+    <div id="final"></div>
+
+</body>
+</html>
